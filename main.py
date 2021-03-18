@@ -1,8 +1,9 @@
-numbers = [7, 2, 5, 10, 33]
-max_value = 0
+numbers = [2, 2, 4, 6, 3, 4, 6, 1]
+uniques = []
 
 for number in numbers:
-    if number > max_value:
-        max_value = number
+    if number not in uniques:
+        uniques.append(number)
 
-print(max_value)
+uniques.sort()
+print(uniques)
