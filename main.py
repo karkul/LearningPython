@@ -1,48 +1,14 @@
-import numpy
-
-
-def matrix_transpose(m):
-    mt = numpy.array(m)
-    num_rows, num_cols = mt.shape
-
-    output = '['
-
-    for col in range(0, num_cols):
-        output += '['
-        for row in range(0, num_rows):
-            output += m[row][col]
-
-            if row != num_rows - 1:
-                output += ' '
-        output += ']'
-        if col != num_cols - 1:
-            output += '\n'
-    output += ']'
-
-    print(output)
-
-
-def matrix_flatten(m):
-    mt = numpy.array(m)
-    num_rows, num_cols = mt.shape
-
-    output = '['
-    for row in range(0, num_rows):
-        for col in range(0, num_cols):
-            output += m[row][col] + ' '
-    output = output[:-1] + ']'
-
-    print(output)
-
-
 if __name__ == '__main__':
-    num_rows, num_cols = map(int, input().split())
+    x, y, z, n = (int(input()) for _ in range(4))
 
-    matrix = []
+    l = []
+    for i in range(0, x+1):
+        for j in range(0, y + 1):
+            for k in range(0, z + 1):
+                if i + j + k != n:
+                    l.append([i, j, k])
 
-    for row in range(0, num_rows):
-        row_values = input()
-        matrix.insert(row, row_values.split())
+    print(l)
 
-    matrix_transpose(matrix)
-    matrix_flatten(matrix)
+    # A better way to do it using print function and nested for loops
+    #print([[i, j, k] for i in range(0, x+1) for j in range(0, y+1) for k in range(0, z+1) if i + j + k != n ])
